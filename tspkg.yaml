@@ -1,0 +1,7 @@
+name: linalg
+version: 2.2.0
+maintainer: Yan Yan <yan.yan@tusimple.ai>
+
+build: |
+  mkdir -p $INSTALL_DIR/include
+  cp linalg.h $INSTALL_DIR/include
