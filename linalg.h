@@ -295,6 +295,8 @@ namespace linalg
         constexpr vec<T,1>          row(int i) const                    { return {x[i]}; }
         constexpr const V &         operator[] (int j) const            { return x; }
         LINALG_CONSTEXPR14 V &      operator[] (int j)                  { return x; }
+        constexpr const T&          operator() (int i, int j) const      { return (*this)[j][i]; }
+        constexpr       T&          operator() (int i, int j)            { return (*this)[j][i]; }
 
         template<class U, class=detail::conv_t<mat,U>> constexpr mat(const U & u) : mat(converter<mat,U>{}(u)) {}
         template<class U, class=detail::conv_t<U,mat>> constexpr operator U () const { return converter<U,mat>{}(*this); }
@@ -312,6 +314,8 @@ namespace linalg
         constexpr vec<T,2>          row(int i) const                    { return {x[i], y[i]}; }
         constexpr const V &         operator[] (int j) const            { return j==0?x:y; }
         LINALG_CONSTEXPR14 V &      operator[] (int j)                  { return j==0?x:y; }
+        constexpr const T&          operator() (int i, int j) const      { return (*this)[j][i]; }
+        constexpr       T&          operator() (int i, int j)            { return (*this)[j][i]; }
 
         template<class U, class=detail::conv_t<mat,U>> constexpr mat(const U & u) : mat(converter<mat,U>{}(u)) {}
         template<class U, class=detail::conv_t<U,mat>> constexpr operator U () const { return converter<U,mat>{}(*this); }
@@ -330,6 +334,8 @@ namespace linalg
         constexpr vec<T,3>          row(int i) const                    { return {x[i], y[i], z[i]}; }
         constexpr const V &         operator[] (int j) const            { return j==0?x:j==1?y:z; }
         LINALG_CONSTEXPR14 V &      operator[] (int j)                  { return j==0?x:j==1?y:z; }
+        constexpr const T&          operator() (int i, int j) const      { return (*this)[j][i]; }
+        constexpr       T&          operator() (int i, int j)            { return (*this)[j][i]; }
 
         template<class U, class=detail::conv_t<mat,U>> constexpr mat(const U & u) : mat(converter<mat,U>{}(u)) {}
         template<class U, class=detail::conv_t<U,mat>> constexpr operator U () const { return converter<U,mat>{}(*this); }
@@ -348,6 +354,8 @@ namespace linalg
         constexpr vec<T,4>          row(int i) const                    { return {x[i], y[i], z[i], w[i]}; }
         constexpr const V &         operator[] (int j) const            { return j==0?x:j==1?y:j==2?z:w; }
         LINALG_CONSTEXPR14 V &      operator[] (int j)                  { return j==0?x:j==1?y:j==2?z:w; }
+        constexpr const T&          operator() (int i, int j) const      { return (*this)[j][i]; }
+        constexpr       T&          operator() (int i, int j)            { return (*this)[j][i]; }
 
         template<class U, class=detail::conv_t<mat,U>> constexpr mat(const U & u) : mat(converter<mat,U>{}(u)) {}
         template<class U, class=detail::conv_t<U,mat>> constexpr operator U () const { return converter<U,mat>{}(*this); }
